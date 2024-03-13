@@ -22,32 +22,27 @@ class Square:
     perimeter():
         Returns the perimeter of the square.
     """
+    width = 0
+    height = 0
 
-    def __init__(self, side=0):
-        """
-        Constructs all the necessary attributes for the square object.
+    
+    def __init__(self, *args, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
-        Parameters
-        ----------
-            side : int
-                side length of the square (default 0)
-        """
-        self.side = side
+    def area_of_my_square(self):
+        """ Area of the square """
+        return self.width * self.width
 
-    def area(self):
-        """Returns the area of the square."""
-        return self.side ** 2
-
-    def perimeter(self):
-        """Returns the perimeter of the square."""
-        return self.side * 4
+    def PermiterOfMySquare(self):
+        return (self.width +self.height) * 2
 
     def __str__(self):
-        return "Square with side length: {}".format(self.side)
-
+        return "{}/{}".format(self.width, self.height)
 
 if __name__ == "__main__":
-    s = Square(side=12)
+
+    s = square(width=12, height=9)
     print(s)
-    print("Area:", s.area())
-    print("Perimeter:", s.perimeter())
+    print(s.area_of_my_square())
+    print(s.PermiterOfMySquare())
